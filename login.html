@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - Fengshui.AI</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #E6F3E6 0%, #4A8B2C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(74, 139, 44, 0.12);
+            padding: 2.5rem 2rem 2rem 2rem;
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .login-logo img {
+            width: 56px;
+            height: 56px;
+        }
+
+        .login-title {
+            text-align: center;
+            font-weight: 700;
+            color: #4A8B2C;
+            margin-bottom: 1.2rem;
+            font-size: 1.7rem;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-login {
+            background: var(--primary);
+            color: #fff;
+            border-radius: 8px;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 1rem;
+            box-shadow: 0 2px 8px rgba(74, 139, 44, 0.08);
+            transition: background 0.3s;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-login:hover {
+            background: #3D7A23;
+        }
+
+        .register-link {
+            display: block;
+            text-align: center;
+            margin-top: 1.2rem;
+            color: var(--primary);
+            text-decoration: underline;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feng-shui-border {
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            padding: 1.5rem 1rem 1rem 1rem;
+        }
+
+        .feng-shui-icon {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .alert {
+            display: none;
+            margin-bottom: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .forgot-password {
+            display: block;
+            text-align: right;
+            margin-top: -0.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        label.form-label {
+            position: relative;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        form {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container feng-shui-border">
+        <div class="login-logo">
+            <img src="img/new/banner-index.png" alt="Fengshui.AI Logo">
+        </div>
+        <div class="login-title">Đăng nhập Fengshui.AI</div>
+        <div class="alert alert-danger" id="login-error" role="alert"></div>
+        <form id="login-form">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Nhập email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu" required>
+            </div>
+            <a href="#" class="forgot-password">Quên mật khẩu?</a>
+            <button type="submit" class="btn btn-login">Đăng nhập <i class="fas fa-sign-in-alt"></i></button>
+        </form>
+        <a href="register.html" class="register-link">Chưa có tài khoản? Đăng ký ngay</a>
+    </div>
+
+    <script>
+        const BASE_URL = 'http://14.225.198.239:3000/api/auth';
+        document.addEventListener("DOMContentLoaded", function () {
+            // Đảm bảo rằng các trường input có thể nhận sự kiện click
+            const inputs = document.querySelectorAll('.form-control');
+            inputs.forEach(input => {
+                input.style.pointerEvents = 'auto';
+            });
+        });
+
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Lấy giá trị từ form
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Kiểm tra đơn giản
+            if (!email || !password) {
+                showError('Vui lòng nhập đầy đủ thông tin');
+                return;
+            }
+
+            // Mô phỏng gửi dữ liệu đến server
+            // console.log('Đăng nhập với:', {
+            //     email: email,
+            //     password: password
+            // });
+
+            // Thông thường bạn sẽ gửi request tới server ở đây
+            fetch(`${BASE_URL}/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            }).then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        localStorage.setItem('token', data.data);
+                        window.location.href = 'index.html';
+                    } else {
+                        showError(data.message);
+                    }
+                }).catch(error => {
+                    showError('Đã xảy ra lỗi khi đăng nhập');
+                });
+
+            // Mô phỏng chuyển hướng sau khi đăng nhập thành công
+            // alert('Đăng nhập thành công!');
+            // window.location.href = 'index.html';
+        });
+
+        function showError(message) {
+            const errorElement = document.getElementById('login-error');
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+
+            // Ẩn thông báo lỗi sau 3 giây
+            setTimeout(() => {
+                errorElement.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>

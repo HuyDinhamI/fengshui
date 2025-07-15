@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Admin</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/owl.carousel.min.css" rel="stylesheet">
+    <link href="css/owl.theme.default.min.css" rel="stylesheet">
+    <link href="css/magnific-popup.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid bg-primary py-2 px-0 d-flex align-items-center">
+        <h1 class="m-0 text-white">Admin</h1>
+    </div>
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="bg-light rounded h-100 p-4">
+                    <h6 class="mb-4">Login Admin</h6>
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                    </form>
+                    <button class="btn btn-primary" onclick="login()">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const BASE_URL = 'http://14.225.198.239:3000/api/auth';
+        // const tokenAdmin = localStorage.getItem('tokenAdmin');
+        // if (tokenAdmin) {
+        //     window.location.href = 'admin.html';
+        // }
+        function login() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            fetch(`${BASE_URL}/loginAdmin`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            }).then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    localStorage.setItem('tokenAdmin', data.data);
+                    window.location.href = 'admin.html';
+                })
+                .catch(error => {
+                    console.error('Error logging in:', error);
+                });
+        }
+    </script>
+</body>
+
+</html>

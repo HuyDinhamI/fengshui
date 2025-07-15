@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký - Fengshui.AI</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #E6F3E6 0%, #4A8B2C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .register-container {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(74, 139, 44, 0.12);
+            padding: 2.5rem 2rem 2rem 2rem;
+            max-width: 450px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .register-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .register-logo img {
+            width: 56px;
+            height: 56px;
+        }
+
+        .register-title {
+            text-align: center;
+            font-weight: 700;
+            color: #4A8B2C;
+            margin-bottom: 1.2rem;
+            font-size: 1.7rem;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-register {
+            background: var(--primary);
+            color: #fff;
+            border-radius: 8px;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 1rem;
+            box-shadow: 0 2px 8px rgba(74, 139, 44, 0.08);
+            transition: background 0.3s;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-register:hover {
+            background: #3D7A23;
+        }
+
+        .login-link {
+            display: block;
+            text-align: center;
+            margin-top: 1.2rem;
+            color: var(--primary);
+            text-decoration: underline;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feng-shui-border {
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            padding: 1.5rem 1rem 1rem 1rem;
+        }
+
+        .feng-shui-icon {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -5px;
+            margin-left: -5px;
+        }
+
+        .form-row>div {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .alert {
+            display: none;
+            margin-bottom: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .is-invalid {
+            border-color: #dc3545;
+        }
+
+        .invalid-feedback {
+            display: none;
+            width: 100%;
+            margin-top: .25rem;
+            font-size: 80%;
+            color: #dc3545;
+            position: relative;
+            z-index: 2;
+        }
+
+        label.form-label {
+            position: relative;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        form {
+            position: relative;
+            z-index: 1;
+        }
+
+        select.form-control {
+            position: relative;
+            z-index: 2;
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="register-container feng-shui-border">
+        <div class="register-logo">
+            <img src="img/new/banner-index.png" alt="Fengshui.AI Logo">
+        </div>
+        <div class="register-title">Đăng ký Fengshui.AI</div>
+        <div class="alert alert-danger" id="register-error" role="alert"></div>
+        <div class="alert alert-success" id="register-success" role="alert">Đăng ký thành công! Đang chuyển hướng đến
+            trang đăng nhập...</div>
+        <form id="register-form">
+            <div class="mb-3">
+                <label for="name" class="form-label">Họ và tên</label>
+                <input type="text" class="form-control" id="name" placeholder="Nhập họ và tên" required>
+                <div class="invalid-feedback">Vui lòng nhập họ và tên</div>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Nhập email" required>
+                <div class="invalid-feedback">Vui lòng nhập email hợp lệ</div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu" required>
+                <div class="invalid-feedback">Mật khẩu phải có ít nhất 6 ký tự</div>
+            </div>
+            <div class="mb-3">
+                <label for="confirm-password" class="form-label">Xác nhận mật khẩu</label>
+                <input type="password" class="form-control" id="confirm-password" placeholder="Nhập lại mật khẩu"
+                    required>
+                <div class="invalid-feedback">Mật khẩu xác nhận không khớp</div>
+            </div>
+            <div class="form-row mb-3">
+                <div class="col-md-6 mb-3">
+                    <label for="age" class="form-label">Ngày Tháng Năm Sinh</label>
+                    <input type="date" class="form-control" id="dayOfBirth" min="1980-01-01" max="2005-12-31"
+                        placeholder="Nhập ngày sinh" required>
+                    <div class="invalid-feedback">Ngày sinh phải từ 1980-01-01 đến 2005-12-31</div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="gender" class="form-label">Giới tính</label>
+                    <select class="form-control" id="gender" required>
+                        <option value="" disabled selected>Chọn giới tính</option>
+                        <option value="male">Nam</option>
+                        <option value="female">Nữ</option>
+                        <option value="other">Khác</option>
+                    </select>
+                    <div class="invalid-feedback">Vui lòng chọn giới tính</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Số điện thoại</label>
+                <input type="tel" class="form-control" id="phone" placeholder="Nhập số điện thoại" required>
+                <div class="invalid-feedback">Vui lòng nhập số điện thoại hợp lệ</div>
+            </div>
+            <button type="submit" class="btn btn-register">Đăng ký <i class="fas fa-user-plus"></i></button>
+        </form>
+        <a href="login.html" class="login-link">Đã có tài khoản? Đăng nhập</a>
+    </div>
+
+    <script>
+        const BASE_URL = 'http://14.225.198.239:3000/api/auth';
+        document.addEventListener("DOMContentLoaded", function () {
+            // Đảm bảo rằng các trường input có thể nhận sự kiện click
+            const inputs = document.querySelectorAll('.form-control');
+            inputs.forEach(input => {
+                input.style.pointerEvents = 'auto';
+            });
+        });
+
+        document.getElementById('register-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            // Reset form validation
+            resetValidation();
+
+            // Lấy giá trị từ form
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const dayOfBirth = document.getElementById('dayOfBirth').value;
+            const gender = document.getElementById('gender').value;
+            const phone = document.getElementById('phone').value;
+
+            // Kiểm tra các trường dữ liệu
+            let isValid = true;
+
+            if (!name || name.trim().length < 2) {
+                showInputError('name', 'Họ tên phải có ít nhất 2 ký tự');
+                isValid = false;
+            }
+
+            if (!email || !isValidEmail(email)) {
+                showInputError('email', 'Email không hợp lệ');
+                isValid = false;
+            }
+
+            if (!password || password.length < 6) {
+                showInputError('password', 'Mật khẩu phải có ít nhất 6 ký tự');
+                isValid = false;
+            }
+
+            if (password !== confirmPassword) {
+                showInputError('confirm-password', 'Mật khẩu xác nhận không khớp');
+                isValid = false;
+            }
+
+            if (!dayOfBirth || dayOfBirth < '1980-01-01' || dayOfBirth > '2005-12-31') {
+                showInputError('dayOfBirth', 'Ngày sinh phải từ 1980-01-01 đến 2005-12-31');
+                isValid = false;
+            }
+
+            if (!gender) {
+                showInputError('gender', 'Vui lòng chọn giới tính');
+                isValid = false;
+            }
+
+            if (!phone || !isValidPhone(phone)) {
+                showInputError('phone', 'Số điện thoại không hợp lệ');
+                isValid = false;
+            }
+
+            if (!isValid) {
+                return;
+            }
+
+            const apiData = {
+                name: name,
+                email: email,
+                password: password,
+                dayOfBirth: dayOfBirth,
+                gender: gender,
+                phone: phone
+            }
+
+            // Thông thường bạn sẽ gửi request tới server ở đây
+            const response = await fetch(`${BASE_URL}/register`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(apiData)
+            });
+            result = await response.json();
+            globalRenderChat(result);
+        });
+
+        function globalRenderChat(result) {
+            if (result.success) {
+                showSuccessMessage();
+            } else {
+                showError(result.message);
+            }
+        }
+
+
+        function isValidEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+
+        function isValidPhone(phone) {
+            const regex = /^(0|\+84)(\d{9,10})$/;
+            return regex.test(phone);
+        }
+
+        function showInputError(inputId, message) {
+            const input = document.getElementById(inputId);
+            input.classList.add('is-invalid');
+
+            const feedback = input.nextElementSibling;
+            if (feedback && feedback.classList.contains('invalid-feedback')) {
+                feedback.textContent = message;
+                feedback.style.display = 'block';
+            }
+        }
+
+        function resetValidation() {
+            // Ẩn tất cả các thông báo lỗi
+            document.getElementById('register-error').style.display = 'none';
+
+            // Xóa trạng thái lỗi của tất cả các trường input
+            const inputs = document.querySelectorAll('.form-control');
+            inputs.forEach(input => {
+                input.classList.remove('is-invalid');
+            });
+
+            const feedbacks = document.querySelectorAll('.invalid-feedback');
+            feedbacks.forEach(feedback => {
+                feedback.style.display = 'none';
+            });
+        }
+
+        function showError(message) {
+            const errorElement = document.getElementById('register-error');
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+        }
+
+        function showSuccessMessage() {
+            document.getElementById('register-form').style.display = 'none';
+            document.getElementById('register-success').style.display = 'block';
+
+            // Chuyển hướng đến trang đăng nhập sau 2 giây
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>

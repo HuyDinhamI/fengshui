@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Fengshui - Ứng dung AI phong thủy</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Ubuntu:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid sticky-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark p-0">
+                <a href="index.html" class="navbar-brand">
+                    <h1 class="text-white">Fengshui<span class="text-dark">.</span>AI</h1>
+                </a>
+                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="index.html" class="nav-item nav-link ">Trang chủ</a>
+                        <a href="about.html" class="nav-item nav-link">Về chúng tôi</a>
+                        <a href="service.html" class="nav-item nav-link">Tính năng</a>
+                        <a href="project.html" class="nav-item nav-link active">Vật phẩm </a>
+                        <!-- <a href="price.html" class="nav-item nav-link">Bảng giá</a> -->
+                        <a href="contact.html" class="nav-item nav-link">Tài khoản</a>
+                    </div>
+                    <butaton type="button" class="btn text-white p-0 d-none d-lg-block" data-bs-toggle="modal"
+                        data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Hero Start -->
+    <div class="container-fluid pt-5 bg-primary hero-header">
+        <div class="container pt-5">
+            <div class="row g-5 pt-5">
+                <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
+                    <h1 class="display-4 text-white mb-4 animated slideInRight">Vật phẩm</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center justify-content-lg-start mb-0">
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Vật phẩm</a></li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-lg-6 align-self-end text-center text-lg-end">
+                    <img class="img-fluid" src="img/new/banner.png" alt="" style="max-height: 300px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+
+    <!-- Full Screen Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content" style="background: rgba(20, 24, 62, 0.7);">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn btn-square bg-white btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center justify-content-center">
+                    <div class="input-group" style="max-width: 600px;">
+                        <input type="text" class="form-control bg-transparent border-light p-3"
+                            placeholder="Type search keyword">
+                        <button class="btn btn-light px-4"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Full Screen Search End -->
+
+
+    <!-- Product Start -->
+    <div class="container-fluid bg-light py-5">
+        <div class="container py-5">
+            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+                <div class="btn btn-sm border rounded-pill text-primary px-3 mb-3">Bộ sưu tập phong thủy</div>
+                <h1 class="mb-4">Khám Phá Vật Phẩm & Nội Thất Phong Thủy</h1>
+            </div>
+            <ul class="nav nav-pills mb-4 justify-content-center" id="productTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="vatpham-tab" data-bs-toggle="pill" data-bs-target="#vatpham"
+                        type="button" role="tab" aria-controls="vatpham" aria-selected="true">
+                        <i class="fa fa-gem me-2"></i>Vật phẩm phong thủy
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="noithat-tab" data-bs-toggle="pill" data-bs-target="#noithat"
+                        type="button" role="tab" aria-controls="noithat" aria-selected="false">
+                        <i class="fa fa-home me-2"></i>Nội thất phong thủy
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content" id="productTabContent">
+                <!-- Tab 1: Vật phẩm phong thủy -->
+                <div class="tab-pane fade show active" id="vatpham" role="tabpanel" aria-labelledby="vatpham-tab">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                            <div class="product-item bg-white text-center rounded p-4 d-flex flex-column h-100 shadow-sm product-card"
+                                data-name="PHONG VỊ DÂN GIAN" data-img="img/fix/sp-phong-vi-dan-gian.jpg"
+                                data-content="<ul><li>Phong Vị Dân Gian được chế tác từ giấy ốp và gỗ tre ép thủ công</li><li>Chiếc quạt vừa bền chắc, vừa giữ được vân tre mộc mạc, thân thiện với môi trường</li><li>Lấy cảm hứng từ tranh Đông Hồ, tái hiện sinh động các tích truyện dân gian</li><li>Giá: 39.000 VNĐ</li></ul>">
+                                <img class="img-fluid rounded mb-3 mx-auto" src="img/fix/sp-phong-vi-dan-gian.jpg"
+                                    alt="PHONG VỊ DÂN GIAN"
+                                    style="max-height: 200px; width: auto; object-fit: contain;">
+                                <h5 class="mb-2">PHONG VỊ DÂN GIAN</h5>
+                                <ul class="list-unstyled text-start mb-3 small"
+                                    style="font-size: 0.95rem; line-height: 1.5;">
+                                    <li>• Chế tác từ giấy ốp và gỗ tre ép thủ công</li>
+                                    <li>• Bền chắc, giữ được vân tre mộc mạc</li>
+                                    <li>• Lấy cảm hứng từ tranh Đông Hồ</li>
+                                    <li>• Tái hiện các tích truyện dân gian</li>
+                                </ul>
+                                <div class="price mb-3" style="font-weight: bold; color: #4A8B2C; font-size: 1.1rem;">
+                                    39.000 VNĐ
+                                </div>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBPRA8uFaibECJWSGp9R2X2Vjb1ddSb-3qpWTpXF-1vcUhdg/viewform"
+                                    class="btn btn-success w-100">MUA NGAY</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.2s">
+                            <div class="product-item bg-white text-center rounded p-4 d-flex flex-column h-100 shadow-sm product-card"
+                                data-name="VÂN DÓ THANH" data-img="img/fix/sp-van-do-thanh.jpg"
+                                data-content="<ul><li>Vân Dó Thanh được chế tác từ giấy dó thuần khiết</li><li>Chất liệu đặc biệt 'biết thở' theo độ ẩm</li><li>Lộ những đường vân tự nhiên, nhẹ nhàng và đầy tinh tế</li><li>Giá: 149.000 VNĐ</li></ul>">
+                                <img class="img-fluid rounded mb-3 mx-auto" src="img/fix/sp-van-do-thanh.jpg"
+                                    alt="VÂN DÓ THANH" style="max-height: 200px; width: auto; object-fit: contain;">
+                                <h5 class="mb-2">VÂN DÓ THANH</h5>
+                                <ul class="list-unstyled text-start mb-3 small"
+                                    style="font-size: 0.95rem; line-height: 1.5;">
+                                    <li>• Chế tác từ giấy dó thuần khiết</li>
+                                    <li>• Chất liệu đặc biệt "biết thở" theo độ ẩm</li>
+                                    <li>• Lộ những đường vân tự nhiên, tinh tế</li>
+                                    <li>• Vẻ đẹp thanh tao, giản dị nhưng bền bỉ</li>
+                                </ul>
+                                <div class="price mb-3" style="font-weight: bold; color: #4A8B2C; font-size: 1.1rem;">
+                                    149.000 VNĐ
+                                </div>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBPRA8uFaibECJWSGp9R2X2Vjb1ddSb-3qpWTpXF-1vcUhdg/viewform"
+                                    class="btn btn-success w-100">MUA NGAY</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.3s">
+                            <div class="product-item bg-white text-center rounded p-4 d-flex flex-column h-100 shadow-sm product-card"
+                                data-name="DUYÊN CHIỀU ĐIỆP" data-img="img/fix/sp-duyen-chieu-diep.jpg"
+                                data-content="<ul><li>Tựa ánh chiều buông trên lụa, Duyên Chiều Điệp ghi dấu ấn</li><li>Chất liệu giấy điệp óng ánh và họa tiết vẽ tay tinh xảo</li><li>Toát lên vẻ nhẹ nhàng, quyến rũ và tinh tế</li><li>Giá: 159.000 VNĐ</li></ul>">
+                                <img class="img-fluid rounded mb-3 mx-auto" src="img/fix/sp-duyen-chieu-diep.jpg"
+                                    alt="DUYÊN CHIỀU ĐIỆP" style="max-height: 200px; width: auto; object-fit: contain;">
+                                <h5 class="mb-2">DUYÊN CHIỀU ĐIỆP</h5>
+                                <ul class="list-unstyled text-start mb-3 small"
+                                    style="font-size: 0.95rem; line-height: 1.5;">
+                                    <li>• Tựa ánh chiều buông trên lụa</li>
+                                    <li>• Chất liệu giấy điệp óng ánh</li>
+                                    <li>• Họa tiết vẽ tay tinh xảo</li>
+                                    <li>• Vẻ nhẹ nhàng, quyến rũ và tinh tế</li>
+                                </ul>
+                                <div class="price mb-3" style="font-weight: bold; color: #4A8B2C; font-size: 1.1rem;">
+                                    159.000 VNĐ
+                                </div>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBPRA8uFaibECJWSGp9R2X2Vjb1ddSb-3qpWTpXF-1vcUhdg/viewform"
+                                    class="btn btn-success w-100">MUA NGAY</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.4s">
+                            <div class="product-item bg-white text-center rounded p-4 d-flex flex-column h-100 shadow-sm product-card"
+                                data-name="Thu nhài" data-img="img/fix/sp-thanh-nhai.jpg"
+                                data-content="<ul><li>THU NHÀI – hương nhài trong trẻo, nhẹ tênh</li><li>Như buổi chiều đầu thu, nơi tâm trí được nghỉ ngơi</li><li>Sau những ngày xáo trộn</li><li>Giá: 50.000 VNĐ</li></ul>">
+                                <img class="img-fluid rounded mb-3 mx-auto" src="img/fix/sp-thanh-nhai.jpg"
+                                    alt="Thu nhài" style="max-height: 200px; width: auto; object-fit: contain;">
+                                <h5 class="mb-2">Thu nhài</h5>
+                                <ul class="list-unstyled text-start mb-3 small"
+                                    style="font-size: 0.95rem; line-height: 1.5;">
+                                    <li>• Hương nhài trong trẻo, nhẹ tênh</li>
+                                    <li>• Như buổi chiều đầu thu</li>
+                                    <li>• Nơi tâm trí được nghỉ ngơi</li>
+                                    <li>• Sau những ngày xáo trộn</li>
+                                </ul>
+                                <div class="price mb-3" style="font-weight: bold; color: #4A8B2C; font-size: 1.1rem;">
+                                    50.000 VNĐ
+                                </div>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLScJquYMCv4pmwm_9RYBTfifGTXqUG4EULNoaGozT5dGL3Fr9Q/viewform?fbclid=IwY2xjawK_vlhleHRuA2FlbQIxMABicmlkETFKZ0JVcW81UXlFbWVzN1pmAR5Y_re0Wz8K_BLHaUPuv2SI4W-0obho3ZevDIK7CcO9fhbE2RBKJlK2xDWGVA_aem_w_7S15tMmGnH9pgohAyw7A"
+                                    class="btn btn-success w-100">MUA NGAY</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.5s">
+                            <div class="product-item bg-white text-center rounded p-4 d-flex flex-column h-100 shadow-sm product-card"
+                                data-name="Thanh hải" data-img="img/fix/sp-thanh-hai.jpg"
+                                data-content="<ul><li>THANH HẢI – làn gió biển mát lành</li><li>Thổi qua cơn mỏi mệt</li><li>Giúp bạn thấy tinh thần nhẹ bẫng</li><li>Giá: 50.000 VNĐ</li></ul>">
+                                <img class="img-fluid rounded mb-3 mx-auto" src="img/fix/sp-thanh-hai.jpg"
+                                    alt="Thanh hải" style="max-height: 200px; width: auto; object-fit: contain;">
+                                <h5 class="mb-2">Thanh hải</h5>
+                                <ul class="list-unstyled text-start mb-3 small"
+                                    style="font-size: 0.95rem; line-height: 1.5;">
+                                    <li>• Làn gió biển mát lành</li>
+                                    <li>• Thổi qua cơn mỏi mệt</li>
+                                    <li>• Giúp tinh thần nhẹ bẫng</li>
+                                    <li>• Trái tim rộng mở trở lại</li>
+                                </ul>
+                                <div class="price mb-3" style="font-weight: bold; color: #4A8B2C; font-size: 1.1rem;">
+                                    50.000 VNĐ
+                                </div>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLScJquYMCv4pmwm_9RYBTfifGTXqUG4EULNoaGozT5dGL3Fr9Q/viewform?fbclid=IwY2xjawK_vlhleHRuA2FlbQIxMABicmlkETFKZ0JVcW81UXlFbWVzN1pmAR5Y_re0Wz8K_BLHaUPuv2SI4W-0obho3ZevDIK7CcO9fhbE2RBKJlK2xDWGVA_aem_w_7S15tMmGnH9pgohAyw7A"
+                                    class="btn btn-success w-100">MUA NGAY</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.6s">
+                            <div class="product-item bg-white text-center rounded p-4 d-flex flex-column h-100 shadow-sm product-card"
+                                data-name="Oải chi hương" data-img="img/fix/sp-oai-chi-huong.jpg"
+                                data-content="<ul><li>OẢI CHI HƯƠNG – hương oải hương dịu dàng</li><li>Mộc mạc, ôm trọn bạn trong giấc ngủ sâu</li><li>Như những đêm tuổi thơ không lo nghĩ</li><li>Giá: 50.000 VNĐ</li></ul>">
+                                <img class="img-fluid rounded mb-3 mx-auto" src="img/fix/sp-oai-chi-huong.jpg"
+                                    alt="Oải chi hương" style="max-height: 200px; width: auto; object-fit: contain;">
+                                <h5 class="mb-2">Oải chi hương</h5>
+                                <ul class="list-unstyled text-start mb-3 small"
+                                    style="font-size: 0.95rem; line-height: 1.5;">
+                                    <li>• Hương oải hương dịu dàng</li>
+                                    <li>• Mộc mạc, ôm trọn bạn</li>
+                                    <li>• Trong giấc ngủ sâu</li>
+                                    <li>• Như những đêm tuổi thơ</li>
+                                </ul>
+                                <div class="price mb-3" style="font-weight: bold; color: #4A8B2C; font-size: 1.1rem;">
+                                    50.000 VNĐ
+                                </div>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLScJquYMCv4pmwm_9RYBTfifGTXqUG4EULNoaGozT5dGL3Fr9Q/viewform?fbclid=IwY2xjawK_vlhleHRuA2FlbQIxMABicmlkETFKZ0JVcW81UXlFbWVzN1pmAR5Y_re0Wz8K_BLHaUPuv2SI4W-0obho3ZevDIK7CcO9fhbE2RBKJlK2xDWGVA_aem_w_7S15tMmGnH9pgohAyw7A"
+                                    class="btn btn-success w-100">MUA NGAY</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.7s">
+                            <div class="product-item bg-white text-center rounded p-4 d-flex flex-column h-100 shadow-sm product-card"
+                                data-name="Cây Bonsai Ngũ Gia Bì" data-img="img/fix/cay-Bonsai.webp"
+                                data-content="<ul><li>Cây cảnh phong thủy mang ý nghĩa chiêu tài, đuổi tà, thích hợp trang trí bàn làm việc hoặc phòng khách.</li><li>Giá: 25.000 VNĐ</li></ul>">
+                                <img class="img-fluid rounded mb-3 mx-auto" src="img/fix/cay-Bonsai.webp"
+                                    alt="Cây Bonsai Ngũ Gia Bì"
+                                    style="max-height: 200px; width: auto; object-fit: contain;">
+                                <h5 class="mb-2">Cây Bonsai Ngũ Gia Bì</h5>
+                                <ul class="list-unstyled text-start mb-3 small"
+                                    style="font-size: 0.95rem; line-height: 1.5;">
+                                    <li>• Cây phong thủy mang ý nghĩa chiêu tài, đuổi tà</li>
+                                    <li>• Thích hợp trang trí bàn làm việc hoặc phòng khách</li>
+                                </ul>
+                                <div class="price mb-3" style="font-weight: bold; color: #4A8B2C; font-size: 1.1rem;">
+                                    25.000 VNĐ
+                                </div>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLScrfjOMv51NyPb_4rDdcfJqNHaoNwNkhrySJD_uWKkJJZEjjQ/viewform?fbclid=IwY2xjawK_v0FleHRuA2FlbQIxMABicmlkETFKZ0JVcW81UXlFbWVzN1pmAR7LrqcYaloeMMUCwhL95_y1JLRV0YDbbcZoytePYGxgErJh6Rcnhshf7EjGoA_aem_gbnOos1Jtmk5tVr2sPMhMw"
+                                    class="btn btn-success w-100">MUA NGAY</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.8s">
+                            <div class="product-item bg-white text-center rounded p-4 d-flex flex-column h-100 shadow-sm product-card"
+                                data-name="Cây Vạn Niên Thanh" data-img="img/fix/cay-van-nien.webp"
+                                data-content="<ul><li>Biểu tượng của sự may mắn và trường thọ, thích hợp trưng bày trong nhà hay văn phòng.</li><li>Giá: 12.000 VNĐ</li></ul>">
+                                <img class="img-fluid rounded mb-3 mx-auto" src="img/fix/cay-van-nien.webp"
+                                    alt="Cây Vạn Niên Thanh"
+                                    style="max-height: 200px; width: auto; object-fit: contain;">
+                                <h5 class="mb-2">Cây Vạn Niên Thanh</h5>
+                                <ul class="list-unstyled text-start mb-3 small"
+                                    style="font-size: 0.95rem; line-height: 1.5;">
+                                    <li>• Biểu tượng của sự may mắn và trường thọ</li>
+                                    <li>• Thích hợp trưng bày trong nhà hay văn phòng</li>
+                                </ul>
+                                <div class="price mb-3" style="font-weight: bold; color: #4A8B2C; font-size: 1.1rem;">
+                                    12.000 VNĐ
+                                </div>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLScrfjOMv51NyPb_4rDdcfJqNHaoNwNkhrySJD_uWKkJJZEjjQ/viewform?fbclid=IwY2xjawK_v0FleHRuA2FlbQIxMABicmlkETFKZ0JVcW81UXlFbWVzN1pmAR7LrqcYaloeMMUCwhL95_y1JLRV0YDbbcZoytePYGxgErJh6Rcnhshf7EjGoA_aem_gbnOos1Jtmk5tVr2sPMhMw"
+                                    class="btn btn-success w-100">MUA NGAY</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.9s">
+                            <div class="product-item bg-white text-center rounded p-4 d-flex flex-column h-100 shadow-sm product-card"
+                                data-name="Cây Trúc Nhật" data-img="img/fix/cay-truc-nhat.webp"
+                                data-content="<ul><li>Loài cây thanh mảnh, xanh quanh năm, tượng trưng cho sự bình an và thịnh vượng.</li><li>Giá: 9.000 VNĐ</li></ul>">
+                                <img class="img-fluid rounded mb-3 mx-auto" src="img/fix/cay-truc-nhat.webp"
+                                    alt="Cây Trúc Nhật" style="max-height: 200px; width: auto; object-fit: contain;">
+                                <h5 class="mb-2">Cây Trúc Nhật</h5>
+                                <ul class="list-unstyled text-start mb-3 small"
+                                    style="font-size: 0.95rem; line-height: 1.5;">
+                                    <li>• Loài cây thanh mảnh, xanh quanh năm</li>
+                                    <li>• Tượng trưng cho sự bình an và thịnh vượng</li>
+                                </ul>
+                                <div class="price mb-3" style="font-weight: bold; color: #4A8B2C; font-size: 1.1rem;">
+                                    9.000 VNĐ
+                                </div>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLScrfjOMv51NyPb_4rDdcfJqNHaoNwNkhrySJD_uWKkJJZEjjQ/viewform?fbclid=IwY2xjawK_v0FleHRuA2FlbQIxMABicmlkETFKZ0JVcW81UXlFbWVzN1pmAR7LrqcYaloeMMUCwhL95_y1JLRV0YDbbcZoytePYGxgErJh6Rcnhshf7EjGoA_aem_gbnOos1Jtmk5tVr2sPMhMw"
+                                    class="btn btn-success w-100">MUA NGAY</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tab 2: Nội thất phong thủy -->
+                <div class="tab-pane fade" id="noithat" role="tabpanel" aria-labelledby="noithat-tab">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                            <div class="product-item bg-white text-center rounded p-4 d-flex flex-column h-100 shadow-sm"
+                                data-bs-toggle="modal" data-bs-target="#livingRoomModal">
+                                <img class="img-fluid rounded mb-3 mx-auto" src="img/new/living-room.png"
+                                    alt="Phòng khách phong thủy"
+                                    style="max-height: 200px; width: auto; object-fit: cover;">
+                                <h5 class="mb-2">Cây phong thủy</h5>
+                                <p class="mb-3 small" style="font-size: 0.98rem;">Khám phá các loại cây phong thủy phù
+                                    hợp cho phòng khách của bạn.</p>
+                                <a href="#" class="btn mt-auto"
+                                    style="background: linear-gradient(90deg, #4A8B2C 0%, #7ed957 100%); color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold;">XEM
+                                    THÊM</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.2s">
+                            <div class="product-item bg-white text-center rounded p-4 d-flex flex-column h-100 shadow-sm"
+                                data-bs-toggle="modal" data-bs-target="#bedroomModal">
+                                <img class="img-fluid rounded mb-3 mx-auto" src="img/new/bedroom.png"
+                                    alt="Phòng ngủ phong thủy"
+                                    style="max-height: 200px; width: auto; object-fit: cover;">
+                                <h5 class="mb-2">Chậu cây phong thủy</h5>
+                                <p class="mb-3 small" style="font-size: 0.98rem;">Tìm hiểu các loại chậu cây phong thủy
+                                    phù hợp cho phòng ngủ.</p>
+                                <a href="#" class="btn mt-auto"
+                                    style="background: linear-gradient(90deg, #4A8B2C 0%, #7ed957 100%); color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold;">XEM
+                                    THÊM</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.3s">
+                            <div class="product-item bg-white text-center rounded p-4 d-flex flex-column h-100 shadow-sm"
+                                data-bs-toggle="modal" data-bs-target="#customModal">
+                                <img class="img-fluid rounded mb-3 mx-auto" src="img/new/desk.png"
+                                    alt="Bàn làm việc phong thủy"
+                                    style="max-height: 200px; width: auto; object-fit: cover;">
+                                <h5 class="mb-2">Custom phong thủy</h5>
+                                <p class="mb-3 small" style="font-size: 0.98rem;">Tùy chỉnh chậu cây theo
+                                    phong thủy của riêng bạn.</p>
+                                <a href="#" class="btn mt-auto"
+                                    style="background: linear-gradient(90deg, #4A8B2C 0%, #7ed957 100%); color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold;">XEM
+                                    THÊM</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Product End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 footer pt-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                    <a href="index.html" class="d-inline-block mb-3">
+                        <h1 class="text-white">Fengshui<span class="text-primary">.</span>AI</h1>
+                    </a>
+                    <p class="mb-0" style="text-align: justify;">Fengshui.AI mang đến giải pháp tư vấn phong thủy ứng
+                        dụng Trí Tuệ Nhân Tạo, giúp bạn hài hòa không gian sống, cải thiện vận mệnh và kiến tạo tương
+                        lai thịnh vượng.</p>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                    <h5 class="text-white mb-4">Liên Hệ Với Chúng Tôi</h5>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>Hà Nội, Việt Nam</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+84 123 456 789</p>
+                    <p><i class="fa fa-envelope me-3"></i>hotro@fengshui.vn</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href="#" aria-label="Twitter"><i
+                                class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="#" aria-label="Facebook"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="#" aria-label="YouTube"><i
+                                class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="#" aria-label="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="#" aria-label="LinkedIn"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                    <h5 class="text-white mb-4">Liên Kết Hữu Ích</h5>
+                    <a class="btn btn-link" href="#">Về Chúng Tôi</a>
+                    <a class="btn btn-link" href="#">Liên Hệ</a>
+                    <a class="btn btn-link" href="#">Chính Sách Bảo Mật</a>
+                    <a class="btn btn-link" href="#">Điều Khoản Dịch Vụ</a>
+                    <a class="btn btn-link" href="#">Tuyển Dụng</a>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                    <h5 class="text-white mb-4">Dịch Vụ Của Chúng Tôi</h5>
+                    <a class="btn btn-link" href="#">Xem Ngày Tốt</a>
+                    <a class="btn btn-link" href="#">Vật Phẩm Phong Thủy</a>
+                    <a class="btn btn-link" href="#">Sắp Xếp Đồ Đạc</a>
+                    <a class="btn btn-link" href="#">Tư Vấn Phong Thủy AI</a>
+                    <a class="btn btn-link" href="#">Trải Nghiệm VR/AR</a>
+                    <a class="btn btn-link" href="#">Xem Tử Vi</a>
+                </div>
+            </div>
+        </div>
+        <div class="container wow fadeIn" data-wow-delay="0.1s">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Fengshui.AI</a>, Mọi quyền được bảo lưu
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="#">Trang Chủ</a>
+                            <a href="#">Cookies</a>
+                            <a href="#">Hỗ Trợ</a>
+                            <a href="#">FAQs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <!-- Popup chi tiết sản phẩm -->
+    <div class="modal fade" id="productDetailModal" tabindex="-1" aria-labelledby="productDetailModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productDetailModalLabel">Tên sản phẩm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="productDetailImg" src="" alt="" class="img-fluid rounded mb-3 mx-auto d-block"
+                        style="max-height:180px;object-fit:contain;">
+                    <div id="productDetailContent" class="mb-3"></div>
+                </div>
+                <div class="modal-footer">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBPRA8uFaibECJWSGp9R2X2Vjb1ddSb-3qpWTpXF-1vcUhdg/viewform"
+                        class="btn btn-success w-100">MUA NGAY</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Cây cảnh -->
+    <div class="modal fade" id="livingRoomModal" tabindex="-1" aria-labelledby="livingRoomModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="livingRoomModalLabel">Cây Phong Thủy Cho Phòng Khách</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-4" id="livingRoomPlants">
+                        <!-- Cây Bonsai Ngũ Gia Bì -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <img src="img/fix/cay-Bonsai.webp" class="card-img-top" alt="Cây Bonsai Ngũ Gia Bì"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cây Bonsai Ngũ Gia Bì</h5>
+                                    <p class="card-text">Cây cảnh phong thủy mang ý nghĩa chiêu tài, đuổi tà, thích hợp
+                                        trang trí bàn làm việc hoặc phòng khách.</p>
+                                    <div class="price mb-2"
+                                        style="font-weight: bold; color: #4A8B2C; font-size: 1.1rem;">
+                                        25.000 VNĐ
+                                    </div>
+                                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScrfjOMv51NyPb_4rDdcfJqNHaoNwNkhrySJD_uWKkJJZEjjQ/viewform?fbclid=IwY2xjawK_v0FleHRuA2FlbQIxMABicmlkETFKZ0JVcW81UXlFbWVzN1pmAR7LrqcYaloeMMUCwhL95_y1JLRV0YDbbcZoytePYGxgErJh6Rcnhshf7EjGoA_aem_gbnOos1Jtmk5tVr2sPMhMw"
+                                        class="btn btn-success btn-sm">MUA NGAY</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Cây Vạn Niên Thanh -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <img src="img/fix/cay-van-nien.webp" class="card-img-top" alt="Cây Vạn Niên Thanh"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cây Vạn Niên Thanh</h5>
+                                    <p class="card-text">Biểu tượng của sự may mắn và trường thọ, thích hợp trưng bày
+                                        trong nhà hay văn phòng.</p>
+                                    <div class="price mb-2"
+                                        style="font-weight: bold; color: #4A8B2C; font-size: 1.1rem;">
+                                        12.000 VNĐ
+                                    </div>
+                                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScrfjOMv51NyPb_4rDdcfJqNHaoNwNkhrySJD_uWKkJJZEjjQ/viewform?fbclid=IwY2xjawK_v0FleHRuA2FlbQIxMABicmlkETFKZ0JVcW81UXlFbWVzN1pmAR7LrqcYaloeMMUCwhL95_y1JLRV0YDbbcZoytePYGxgErJh6Rcnhshf7EjGoA_aem_gbnOos1Jtmk5tVr2sPMhMw"
+                                        class="btn btn-success btn-sm">MUA NGAY</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Cây Trúc Nhật -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <img src="img/fix/cay-truc-nhat.webp" class="card-img-top" alt="Cây Trúc Nhật"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cây Trúc Nhật</h5>
+                                    <p class="card-text">Loài cây thanh mảnh, xanh quanh năm, tượng trưng cho sự bình an
+                                        và thịnh vượng.</p>
+                                    <div class="price mb-2"
+                                        style="font-weight: bold; color: #4A8B2C; font-size: 1.1rem;">
+                                        9.000 VNĐ
+                                    </div>
+                                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScrfjOMv51NyPb_4rDdcfJqNHaoNwNkhrySJD_uWKkJJZEjjQ/viewform?fbclid=IwY2xjawK_v0FleHRuA2FlbQIxMABicmlkETFKZ0JVcW81UXlFbWVzN1pmAR7LrqcYaloeMMUCwhL95_y1JLRV0YDbbcZoytePYGxgErJh6Rcnhshf7EjGoA_aem_gbnOos1Jtmk5tVr2sPMhMw"
+                                        class="btn btn-success btn-sm">MUA NGAY</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal chậu cây -->
+    <div class="modal fade" id="bedroomModal" tabindex="-1" aria-labelledby="bedroomModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bedroomModalLabel">Chậu Cây Phong Thủy Cho Phòng Ngủ</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-4" id="bedroomPots">
+                        <!-- Chậu nhựa cao tròn -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <img src="img/new/pot-1.png" class="card-img-top" alt="Chậu nhựa cao tròn"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Chậu nhựa cao tròn</h5>
+                                    <p class="card-text">Chậu nhựa cao cấp với thiết kế hiện đại, phù hợp cho các loại
+                                        cây cảnh trong nhà.</p>
+                                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBPRA8uFaibECJWSGp9R2X2Vjb1ddSb-3qpWTpXF-1vcUhdg/viewform"
+                                        class="btn btn-success btn-sm">MUA NGAY</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Chậu sứ tròn đáy bầu -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <img src="img/new/pot-2.png" class="card-img-top" alt="Chậu sứ tròn đáy bầu"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Chậu sứ tròn đáy bầu</h5>
+                                    <p class="card-text">Chậu sứ cao cấp với thiết kế truyền thống, mang lại vẻ đẹp sang
+                                        trọng cho không gian.</p>
+                                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBPRA8uFaibECJWSGp9R2X2Vjb1ddSb-3qpWTpXF-1vcUhdg/viewform"
+                                        class="btn btn-success btn-sm">MUA NGAY</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Chậu gốm mộc -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <img src="img/new/pot-3.png" class="card-img-top" alt="Chậu gốm mộc"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Chậu gốm mộc</h5>
+                                    <p class="card-text">Chậu gốm thủ công với vẻ đẹp tự nhiên, phù hợp với phong cách
+                                        nội thất hiện đại.</p>
+                                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBPRA8uFaibECJWSGp9R2X2Vjb1ddSb-3qpWTpXF-1vcUhdg/viewform"
+                                        class="btn btn-success btn-sm">MUA NGAY</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Chậu composite -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <img src="img/new/pot-4.png" class="card-img-top" alt="Chậu composite"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Chậu composite</h5>
+                                    <p class="card-text">Chậu composite bền bỉ với thời gian, thiết kế đa dạng phù hợp
+                                        mọi không gian.</p>
+                                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBPRA8uFaibECJWSGp9R2X2Vjb1ddSb-3qpWTpXF-1vcUhdg/viewform"
+                                        class="btn btn-success btn-sm">MUA NGAY</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Custom -->
+    <div class="modal fade" id="customModal" tabindex="-1" aria-labelledby="customModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="customModalLabel">Tùy Chỉnh Không Gian Làm Việc</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Phần Gửi ảnh -->
+                    <div class="mb-4">
+                        <h6 class="mb-3">Gửi ảnh ý tưởng cá nhân</h6>
+                        <div class="d-flex gap-3">
+                            <a href="https://www.facebook.com/Smartfengshuii" target="_blank"
+                                class="btn btn-primary flex-grow-1">
+                                <i class="fab fa-facebook-messenger me-2"></i>Gửi ảnh qua Fanpage
+                            </a>
+                            <button class="btn btn-outline-primary flex-grow-1" id="uploadImageBtn">
+                                <i class="fas fa-upload me-2"></i>Upload ảnh
+                            </button>
+                        </div>
+                        <input type="file" id="imageUpload" accept="image/*" class="d-none">
+                        <div id="imagePreview" class="mt-3 text-center d-none">
+                            <img src="" alt="Preview" class="img-fluid rounded" style="max-height: 200px;">
+                        </div>
+                    </div>
+
+                    <!-- Phần Chọn phụ kiện -->
+                    <div>
+                        <h6 class="mb-3">Chọn phụ kiện tùy chỉnh</h6>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="da-phong-thuy"
+                                        id="accessory1">
+                                    <label class="form-check-label" for="accessory1">
+                                        Đá phong thủy
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="tuong-nho" id="accessory2">
+                                    <label class="form-check-label" for="accessory2">
+                                        Tượng nhỏ (Phật, Tỳ Hưu, Thiềm Thừ)
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="soi-trang" id="accessory3">
+                                    <label class="form-check-label" for="accessory3">
+                                        Sỏi trắng
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="day-ruy-bang"
+                                        id="accessory4">
+                                    <label class="form-check-label" for="accessory4">
+                                        Dây ruy băng
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="den-led" id="accessory5">
+                                    <label class="form-check-label" for="accessory5">
+                                        Đèn LED mini
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-success" id="submitCustomBtn">Xác nhận</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Chi tiết cây -->
+    <div class="modal fade" id="plantDetailModal" tabindex="-1" aria-labelledby="plantDetailModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="plantDetailModalLabel">Chi tiết cây</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="plantDetailContent">
+                        <!-- Nội dung sẽ được điền bằng JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Chi tiết chậu -->
+    <div class="modal fade" id="potDetailModal" tabindex="-1" aria-labelledby="potDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="potDetailModalLabel">Chi tiết chậu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="potDetailContent">
+                        <!-- Nội dung sẽ được điền bằng JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thêm JavaScript cho các tính năng tương tác -->
+    <script>
+        // Xử lý upload ảnh
+        document.getElementById('uploadImageBtn').addEventListener('click', function () {
+            document.getElementById('imageUpload').click();
+        });
+
+        document.getElementById('imageUpload').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const preview = document.getElementById('imagePreview');
+                    preview.querySelector('img').src = e.target.result;
+                    preview.classList.remove('d-none');
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Xử lý submit custom
+        document.getElementById('submitCustomBtn').addEventListener('click', function () {
+            const selectedAccessories = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+                .map(checkbox => checkbox.value);
+
+            // Xử lý logic submit ở đây
+            console.log('Selected accessories:', selectedAccessories);
+            alert('Yêu cầu tùy chỉnh của bạn đã được gửi thành công!');
+            $('#customModal').modal('hide');
+        });
+
+        // Xử lý hiển thị chi tiết cây
+        document.querySelectorAll('[data-bs-target="#plantDetailModal"]').forEach(button => {
+            button.addEventListener('click', function () {
+                const plantType = this.dataset.plant;
+                const detailContent = document.getElementById('plantDetailContent');
+
+                // Điền nội dung chi tiết dựa vào loại cây
+                switch (plantType) {
+                    case 'cam-nhung':
+                        detailContent.innerHTML = `
+                            <h5>Cây Cẩm Nhung</h5>
+                            <img src="img/new/plant-1.png" class="img-fluid rounded mb-3" alt="Cây Cẩm Nhung">
+                            <p><strong>Ý nghĩa phong thủy:</strong> Tượng trưng cho sự may mắn, hạnh phúc, biểu tượng cho tình bạn trong sáng nhưng bền vững.</p>
+                            <p><strong>Vị trí đặt:</strong> Bàn làm việc, kệ sách, ban công</p>
+                            <p><strong>Cách chăm sóc:</strong> Tưới nước vừa phải, tránh ánh nắng trực tiếp</p>
+                        `;
+                        break;
+                    case 'lan-tim':
+                        detailContent.innerHTML = `
+                            <h5>Cây Lan Tim</h5>
+                            <img src="img/new/plant-2.png" class="img-fluid rounded mb-3" alt="Cây Lan Tim">
+                            <p><strong>Ý nghĩa phong thủy:</strong> Biểu tượng cho tình yêu đôi lứa, sự gắn bó bền chặt.</p>
+                            <p><strong>Vị trí đặt:</strong> Phòng khách, phòng ngủ</p>
+                            <p><strong>Cách chăm sóc:</strong> Tưới nước đều đặn, ưa bóng râm</p>
+                        `;
+                        break;
+                    case 'bang-singapore':
+                        detailContent.innerHTML = `
+                            <h5>Cây Bàng Singapore</h5>
+                            <img src="img/new/plant-3.png" class="img-fluid rounded mb-3" alt="Cây Bàng Singapore">
+                            <p><strong>Ý nghĩa phong thủy:</strong> Mang lại sự sang trọng và chuyên nghiệp cho không gian.</p>
+                            <p><strong>Vị trí đặt:</strong> Văn phòng, phòng khách</p>
+                            <p><strong>Cách chăm sóc:</strong> Dễ chăm sóc, ít sâu bệnh, tưới nước vừa phải</p>
+                        `;
+                        break;
+                    case 'kim-ngan-bim':
+                        detailContent.innerHTML = `
+                            <h5>Cây Kim Ngân Bím</h5>
+                            <img src="img/new/plant-4.png" class="img-fluid rounded mb-3" alt="Cây Kim Ngân Bím">
+                            <p><strong>Ý nghĩa phong thủy:</strong> Tượng trưng cho tài lộc, may mắn đến với gia chủ.</p>
+                            <p><strong>Vị trí đặt:</strong> Phòng khách, phòng làm việc</p>
+                            <p><strong>Cách chăm sóc:</strong> Tưới nước 2-3 lần/tuần, tránh ánh nắng trực tiếp</p>
+                        `;
+                        break;
+                }
+            });
+        });
+
+        // Xử lý hiển thị chi tiết chậu
+        document.querySelectorAll('[data-bs-target="#potDetailModal"]').forEach(button => {
+            button.addEventListener('click', function () {
+                const potType = this.dataset.pot;
+                const detailContent = document.getElementById('potDetailContent');
+
+                // Điền nội dung chi tiết dựa vào loại chậu
+                switch (potType) {
+                    case 'nhua-cao':
+                        detailContent.innerHTML = `
+                            <h5>Chậu nhựa cao tròn</h5>
+                            <img src="img/new/pot-1.png" class="img-fluid rounded mb-3" alt="Chậu nhựa cao tròn">
+                            <p><strong>Kích thước:</strong> 20×18 cm</p>
+                            <p><strong>Màu sắc:</strong> Trắng</p>
+                            <p><strong>Chất liệu:</strong> Nhựa ABS sơn bóng</p>
+                            <p><strong>Kiểu dáng:</strong> Cao tròn vát</p>
+                            <p><strong>Phù hợp với:</strong> Cây cảnh trong nhà, cây phong thủy</p>
+                        `;
+                        break;
+                    case 'su-tron':
+                        detailContent.innerHTML = `
+                            <h5>Chậu sứ tròn đáy bầu</h5>
+                            <img src="img/new/pot-2.png" class="img-fluid rounded mb-3" alt="Chậu sứ tròn đáy bầu">
+                            <p><strong>Kích thước:</strong> 12×12 cm</p>
+                            <p><strong>Màu sắc:</strong> Hồng cánh sen, vàng nhạt, xanh crôm</p>
+                            <p><strong>Chất liệu:</strong> Men sứ, bán sứ</p>
+                            <p><strong>Kiểu dáng:</strong> Bầu tròn, miệng tròn, đáy bầu</p>
+                            <p><strong>Phù hợp với:</strong> Cây cảnh mini, sen đá</p>
+                        `;
+                        break;
+                    case 'gom-moc':
+                        detailContent.innerHTML = `
+                            <h5>Chậu gốm mộc</h5>
+                            <img src="img/new/pot-3.png" class="img-fluid rounded mb-3" alt="Chậu gốm mộc">
+                            <p><strong>Kích thước:</strong> 15×15 cm</p>
+                            <p><strong>Màu sắc:</strong> Nâu đất tự nhiên</p>
+                            <p><strong>Chất liệu:</strong> Gốm thủ công</p>
+                            <p><strong>Kiểu dáng:</strong> Tròn đều, thân thấp</p>
+                            <p><strong>Phù hợp với:</strong> Cây cảnh bonsai, cây phong thủy</p>
+                        `;
+                        break;
+                    case 'composite':
+                        detailContent.innerHTML = `
+                            <h5>Chậu composite</h5>
+                            <img src="img/new/pot-4.png" class="img-fluid rounded mb-3" alt="Chậu composite">
+                            <p><strong>Kích thước:</strong> 25×20 cm</p>
+                            <p><strong>Màu sắc:</strong> Đen, trắng, xám</p>
+                            <p><strong>Chất liệu:</strong> Composite cao cấp</p>
+                            <p><strong>Kiểu dáng:</strong> Hiện đại, đa dạng</p>
+                            <p><strong>Phù hợp với:</strong> Cây cảnh văn phòng, cây nội thất</p>
+                        `;
+                        break;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

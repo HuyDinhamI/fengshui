@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Không tìm thấy trang | Fengshui.AI</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #E6F3E6 0%, #4A8B2C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .notfound-container {
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(74, 139, 44, 0.13);
+            padding: 3rem 2.5rem 2.5rem 2.5rem;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .notfound-icon {
+            font-size: 4rem;
+            color: #4A8B2C;
+            margin-bottom: 1.2rem;
+            animation: fengshui-bounce 1.5s infinite alternate;
+        }
+
+        @keyframes fengshui-bounce {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+
+            60% {
+                transform: translateY(-8px) scale(1.08);
+            }
+
+            100% {
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .notfound-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #4A8B2C;
+            margin-bottom: 0.7rem;
+        }
+
+        .notfound-desc {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-home {
+            background: var(--primary);
+            color: #fff;
+            border-radius: 8px;
+            font-weight: 600;
+            padding: 0.7rem 2.2rem;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 8px rgba(74, 139, 44, 0.08);
+            transition: background 0.3s;
+            margin-top: 0.5rem;
+        }
+
+        .btn-home:hover {
+            background: #3D7A23;
+            color: #fff;
+        }
+
+        .fengshui-wave {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100vw;
+            z-index: 1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="notfound-container">
+        <div class="notfound-icon"><i class="fas fa-leaf"></i></div>
+        <div class="notfound-title">404 - Không tìm thấy trang</div>
+        <div class="notfound-desc">Trang bạn tìm kiếm không tồn tại hoặc đã bị di chuyển.<br>Hãy trở về trang chủ để
+            tiếp tục trải nghiệm phong thủy cùng Fengshui.AI!</div>
+        <a href="index.html" class="btn btn-home"><i class="fas fa-home"></i> Về trang chủ</a>
+    </div>
+    <div class="fengshui-wave">
+        <svg viewBox="0 0 1440 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#E6F3E6" fill-opacity="1"
+                d="M0,96L60,101.3C120,107,240,117,360,117.3C480,117,600,107,720,117.3C840,128,960,160,1080,154.7C1200,149,1320,107,1380,85.3L1440,64L1440,180L1380,180C1320,180,1200,180,1080,180C960,180,840,180,720,180C600,180,480,180,360,180C240,180,120,180,60,180L0,180Z">
+            </path>
+            <path fill="#4A8B2C" fill-opacity="0.18"
+                d="M0,160L60,154.7C120,149,240,139,360,128C480,117,600,107,720,117.3C840,128,960,160,1080,154.7C1200,149,1320,107,1380,85.3L1440,64L1440,180L1380,180C1320,180,1200,180,1080,180C960,180,840,180,720,180C600,180,480,180,360,180C240,180,120,180,60,180L0,180Z">
+            </path>
+        </svg>
+    </div>
+</body>
+
+</html>

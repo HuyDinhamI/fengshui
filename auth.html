@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập & Đăng ký - Fengshui.AI</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #E6F3E6 0%, #4A8B2C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .auth-container {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(74, 139, 44, 0.13);
+            padding: 2.5rem 2rem 2rem 2rem;
+            max-width: 420px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            transition: box-shadow 0.4s;
+        }
+
+        .auth-container:focus-within,
+        .auth-container.active-border {
+            box-shadow: 0 0 0 4px #b6e2c1, 0 8px 32px rgba(74, 139, 44, 0.13);
+        }
+
+        .auth-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .auth-logo img {
+            width: 56px;
+            height: 56px;
+        }
+
+        .auth-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #f3f8f3;
+            box-shadow: 0 2px 8px rgba(74, 139, 44, 0.04);
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 0.7rem 0;
+            text-align: center;
+            font-weight: 600;
+            color: #4A8B2C;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            outline: none;
+            transition: background 0.2s, color 0.2s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .auth-tab:hover {
+            background: #e6f3e6;
+            color: #3D7A23;
+            box-shadow: 0 2px 8px #b6e2c1;
+        }
+
+        .auth-tab.active {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 2px 12px #b6e2c1;
+        }
+
+        .auth-tab i {
+            pointer-events: none;
+            transition: transform 0.7s cubic-bezier(.68, -0.55, .27, 1.55);
+            display: inline-block;
+        }
+
+        .auth-tab.active i {
+            animation: fengshui-bounce 1.2s infinite alternate;
+        }
+
+        @keyframes fengshui-bounce {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+
+            60% {
+                transform: translateY(-4px) scale(1.08);
+            }
+
+            100% {
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .form-control {
+            border-radius: 8px;
+        }
+
+        .btn-auth {
+            background: var(--primary);
+            color: #fff;
+            border-radius: 8px;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 1rem;
+            box-shadow: 0 2px 8px rgba(74, 139, 44, 0.08);
+            transition: background 0.3s;
+        }
+
+        .btn-auth:hover {
+            background: #3D7A23;
+        }
+
+        .switch-link {
+            display: block;
+            text-align: center;
+            margin-top: 1.2rem;
+            color: var(--primary);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .feng-shui-border {
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            padding: 1.5rem 1rem 1rem 1rem;
+        }
+
+        .feng-shui-icon {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            transition: filter 0.3s;
+            filter: drop-shadow(0 0 4px #b6e2c1);
+        }
+
+        .fade {
+            display: none;
+        }
+
+        .fade.show {
+            display: block;
+        }
+
+        /* Hiệu ứng sóng phong thủy phía dưới */
+        .fengshui-wave {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100vw;
+            z-index: 1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="auth-container feng-shui-border">
+        <div class="auth-logo">
+            <img src="img/favicon.ico" alt="Fengshui.AI Logo">
+        </div>
+        <div class="auth-tabs">
+            <button class="auth-tab active" id="loginTab" onclick="showTab('login')"><i
+                    class="fas fa-sign-in-alt feng-shui-icon"></i> Đăng nhập</button>
+            <button class="auth-tab" id="registerTab" onclick="showTab('register')"><i
+                    class="fas fa-user-plus feng-shui-icon"></i> Đăng ký</button>
+        </div>
+        <div id="authFormContent"></div>
+    </div>
+    <!-- Sóng phong thủy -->
+    <div class="fengshui-wave">
+        <svg viewBox="0 0 1440 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#E6F3E6" fill-opacity="1"
+                d="M0,96L60,101.3C120,107,240,117,360,117.3C480,117,600,107,720,117.3C840,128,960,160,1080,154.7C1200,149,1320,107,1380,85.3L1440,64L1440,180L1380,180C1320,180,1200,180,1080,180C960,180,840,180,720,180C600,180,480,180,360,180C240,180,120,180,60,180L0,180Z">
+            </path>
+            <path fill="#4A8B2C" fill-opacity="0.18"
+                d="M0,160L60,154.7C120,149,240,139,360,128C480,117,600,107,720,117.3C840,128,960,160,1080,154.7C1200,149,1320,107,1380,85.3L1440,64L1440,180L1380,180C1320,180,1200,180,1080,180C960,180,840,180,720,180C600,180,480,180,360,180C240,180,120,180,60,180L0,180Z">
+            </path>
+        </svg>
+    </div>
+    <script>
+        function renderForm(tab) {
+            const content = document.getElementById('authFormContent');
+            if (tab === 'login') {
+                content.innerHTML = `
+                <form id="loginFormReal">
+                    <div class="mb-3">
+                        <label for="login-email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="login-email" placeholder="Nhập email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="login-password" class="form-label">Mật khẩu</label>
+                        <input type="password" class="form-control" id="login-password" placeholder="Nhập mật khẩu" required>
+                    </div>
+                    <button type="submit" class="btn btn-auth" onclick="login()">Đăng nhập <i class="fas fa-sign-in-alt feng-shui-icon"></i></button>
+                </form>
+                <span class="switch-link" onclick="showTab('register')">Chưa có tài khoản? Đăng ký ngay</span>
+                `;
+                document.getElementById('loginFormReal').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    window.location.href = 'index.html';
+                });
+            } else {
+                content.innerHTML = `
+                <form id="registerFormReal">
+                    <div class="mb-3">
+                        <label for="register-name" class="form-label">Họ và tên</label>
+                        <input type="text" class="form-control" id="register-name" placeholder="Nhập họ và tên" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="register-email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="register-email" placeholder="Nhập email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="register-password" class="form-label">Mật khẩu</label>
+                        <input type="password" class="form-control" id="register-password" placeholder="Nhập mật khẩu" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="register-confirm" class="form-label">Xác nhận mật khẩu</label>
+                        <input type="password" class="form-control" id="register-confirm" placeholder="Nhập lại mật khẩu" required>
+                    </div>
+                    <button type="submit" class="btn btn-auth">Đăng ký <i class="fas fa-user-plus feng-shui-icon"></i></button>
+                </form>
+                <span class="switch-link" onclick="showTab('login')">Đã có tài khoản? Đăng nhập</span>
+                `;
+                document.getElementById('registerFormReal').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    window.location.href = 'index.html';
+                });
+            }
+        }
+        function showTab(tab) {
+            const loginTab = document.getElementById('loginTab');
+            const registerTab = document.getElementById('registerTab');
+            if (tab === 'login') {
+                loginTab.classList.add('active');
+                registerTab.classList.remove('active');
+            } else {
+                loginTab.classList.remove('active');
+                registerTab.classList.add('active');
+            }
+            renderForm(tab);
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            renderForm('login');
+        });
+
+        function login() {
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            console.log(email, password);
+        }
+    </script>
+</body>
+
+</html>
