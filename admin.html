@@ -4,75 +4,458 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Admin Dashboard - Fengshui.AI</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/owl.carousel.min.css" rel="stylesheet">
-    <link href="css/owl.theme.default.min.css" rel="stylesheet">
-    <link href="css/magnific-popup.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .admin-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-card.primary {
+            border-left: 5px solid #007bff;
+        }
+
+        .stats-card.success {
+            border-left: 5px solid #28a745;
+        }
+
+        .stats-card.warning {
+            border-left: 5px solid #ffc107;
+        }
+
+        .stats-card.danger {
+            border-left: 5px solid #dc3545;
+        }
+
+        .stats-card.info {
+            border-left: 5px solid #17a2b8;
+        }
+
+        .stats-icon {
+            font-size: 2.5rem;
+            width: 80px;
+            text-align: center;
+        }
+
+        .stats-icon.primary {
+            color: #007bff;
+        }
+
+        .stats-icon.success {
+            color: #28a745;
+        }
+
+        .stats-icon.warning {
+            color: #ffc107;
+        }
+
+        .stats-icon.danger {
+            color: #dc3545;
+        }
+
+        .stats-icon.info {
+            color: #17a2b8;
+        }
+
+        .stats-content h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        .stats-content p {
+            margin: 5px 0 0 0;
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .analytics-table {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .analytics-table .table {
+            margin-bottom: 0;
+        }
+
+        .analytics-table .table th {
+            background-color: #f8f9fa;
+            border-top: none;
+            font-weight: 600;
+            color: #495057;
+            padding: 20px;
+        }
+
+        .analytics-table .table td {
+            padding: 15px 20px;
+            vertical-align: middle;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .users-table {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .users-table .table {
+            margin-bottom: 0;
+        }
+
+        .users-table .table th {
+            background-color: #f8f9fa;
+            border-top: none;
+            font-weight: 600;
+            color: #495057;
+            padding: 20px;
+        }
+
+        .users-table .table td {
+            padding: 15px 20px;
+            vertical-align: middle;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 1.25rem;
+        }
+
+        .metric-value {
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .logout-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            .stats-card {
+                margin-bottom: 15px;
+                padding: 20px;
+            }
+
+            .stats-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .stats-icon {
+                font-size: 2rem;
+                width: 60px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container-fluid bg-primary py-2 px-0 d-flex align-items-center">
-        <h1 class="m-0 text-white">Admin</h1>
-    </div>
-    <div class="container-fluid pt-4 px-4">
-        <div class="row g-4">
-            <div class="col-12">
-                <div class="bg-light rounded h-100 p-4">
-                    <h6 class="mb-4">Users</h6>
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Gender</th>
-                                    <th>Day of Birth</th>
-                                    <th>Created At</th>
-                                </tr>
-                            </thead>
-                            <tbody id="usersTable">
-                            </tbody>
-                        </table>
-                    </div>
+    <!-- Header -->
+    <div class="admin-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1 class="m-0">
+                        <i class="fas fa-tachometer-alt me-3"></i>
+                        Admin Dashboard
+                    </h1>
+                    <p class="mb-0 mt-1 opacity-75">Fengshui.AI Management System</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <button class="btn logout-btn" onclick="logout()">
+                        <i class="fas fa-sign-out-alt me-2"></i>
+                        Đăng xuất
+                    </button>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="container-fluid pt-4 px-4">
+        <!-- Stats Cards -->
+        <div class="row g-4 mb-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card primary">
+                    <div class="stats-icon primary">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stats-content flex-grow-1">
+                        <h3 id="totalUsers">-</h3>
+                        <p>Tổng số Users</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card success">
+                    <div class="stats-icon success">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="stats-content flex-grow-1">
+                        <h3>564</h3>
+                        <p>Lượt truy cập</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card warning">
+                    <div class="stats-icon warning">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stats-content flex-grow-1">
+                        <h3>28m 5s</h3>
+                        <p>Thời gian truy cập trung bình</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card danger">
+                    <div class="stats-icon danger">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+                    <div class="stats-content flex-grow-1">
+                        <h3>42.1%</h3>
+                        <p>Tỷ lệ thoát</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytics Table -->
+        <div class="row g-4 mb-4">
+            <div class="col-12">
+                <h2 class="section-title">
+                    <i class="fas fa-chart-line me-2"></i>
+                    Thống kê chi tiết
+                </h2>
+                <div class="analytics-table">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 60%;">Chỉ số</th>
+                                <th style="width: 40%;">Giá trị</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <i class="fas fa-eye text-success me-2"></i>
+                                    Lượt truy cập
+                                </td>
+                                <td>
+                                    <span class="metric-value">564</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fas fa-clock text-warning me-2"></i>
+                                    Thời gian truy cập trung bình
+                                </td>
+                                <td>
+                                    <span class="metric-value">28m 5s</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fas fa-door-open text-danger me-2"></i>
+                                    Tỷ lệ thoát
+                                </td>
+                                <td>
+                                    <span class="metric-value">42.1%</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Users Table -->
+        <div class="row g-4">
+            <div class="col-12">
+                <h2 class="section-title">
+                    <i class="fas fa-users me-2"></i>
+                    Danh sách người dùng
+                </h2>
+                <div class="users-table">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <i class="fas fa-user me-2"></i>
+                                    Tên
+                                </th>
+                                <th>
+                                    <i class="fas fa-venus-mars me-2"></i>
+                                    Giới tính
+                                </th>
+                                <th>
+                                    <i class="fas fa-birthday-cake me-2"></i>
+                                    Ngày sinh
+                                </th>
+                                <th>
+                                    <i class="fas fa-calendar-plus me-2"></i>
+                                    Ngày tạo
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTable">
+                            <tr>
+                                <td colspan="4" class="text-center">
+                                    <i class="fas fa-spinner fa-spin me-2"></i>
+                                    Đang tải dữ liệu...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const BASE_URL = 'http://14.225.198.239:3000/api/admin';
         const token = localStorage.getItem('tokenAdmin');
+        
+        // Check authentication
         if (!token || token === 'null' || token === 'undefined') {
             window.location.href = 'loginAdmin.html';
         }
+
+        // Get users data
         function getUsers() {
             fetch(`${BASE_URL}/get-all-user`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
-            }).then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    renderUsers(data.data);
-                })
-                .catch(error => {
-                    console.error('Error fetching users:', error);
-                });
-        }
-        getUsers();
-        function renderUsers(users) {
-            const usersTable = document.getElementById('usersTable');
-            usersTable.innerHTML = '';
-            users.forEach(user => {
-                usersTable.innerHTML += `<tr><td>${user.name}</td><td>${user.gender}</td><td>${user.dayOfBirth}</td><td>${user.createdAt}</td></tr>`;
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                renderUsers(data.data);
+                updateTotalUsers(data.data.length);
+            })
+            .catch(error => {
+                console.error('Error fetching users:', error);
+                document.getElementById('usersTable').innerHTML = `
+                    <tr>
+                        <td colspan="4" class="text-center text-danger">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            Lỗi khi tải dữ liệu: ${error.message}
+                        </td>
+                    </tr>
+                `;
             });
         }
-        function logout() {
-            localStorage.removeItem('token');
-            window.location.href = 'login.html';
+
+        // Render users table
+        function renderUsers(users) {
+            const usersTable = document.getElementById('usersTable');
+            
+            if (!users || users.length === 0) {
+                usersTable.innerHTML = `
+                    <tr>
+                        <td colspan="4" class="text-center text-muted">
+                            <i class="fas fa-user-slash me-2"></i>
+                            Không có dữ liệu người dùng
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            usersTable.innerHTML = '';
+            users.forEach((user, index) => {
+                const genderIcon = user.gender === 'male' ? 'fas fa-mars text-primary' : 'fas fa-venus text-danger';
+                const genderText = user.gender === 'male' ? 'Nam' : 'Nữ';
+                
+                usersTable.innerHTML += `
+                    <tr>
+                        <td>
+                            <i class="fas fa-user-circle text-secondary me-2"></i>
+                            ${user.name || 'N/A'}
+                        </td>
+                        <td>
+                            <i class="${genderIcon} me-2"></i>
+                            ${genderText}
+                        </td>
+                        <td>
+                            <i class="fas fa-calendar text-info me-2"></i>
+                            ${user.dayOfBirth || 'N/A'}
+                        </td>
+                        <td>
+                            <i class="fas fa-clock text-success me-2"></i>
+                            ${new Date(user.createdAt).toLocaleDateString('vi-VN') || 'N/A'}
+                        </td>
+                    </tr>
+                `;
+            });
         }
+
+        // Update total users count
+        function updateTotalUsers(count) {
+            document.getElementById('totalUsers').textContent = count.toLocaleString();
+        }
+
+        // Logout function
+        function logout() {
+            if (confirm('Bạn có chắc chắn muốn đăng xuất?')) {
+                localStorage.removeItem('tokenAdmin');
+                window.location.href = 'loginAdmin.html';
+            }
+        }
+
+        // Initialize
+        getUsers();
+
+        // Auto refresh every 30 seconds
+        setInterval(getUsers, 30000);
     </script>
 </body>
 
